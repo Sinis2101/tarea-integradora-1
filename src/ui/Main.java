@@ -33,13 +33,11 @@ public class Main {
 		return materialAmount;		
 	}
 	public static String[] getMaterialUse(int neededMaterials, String[] materials, Scanner sc) {
-
 		String[] materialUse = new String[neededMaterials];
 		for (int i=0; i<neededMaterials; i++) {
-			System.out.println("En que se usara el material de: "+materials[i]+". Obra negra, Obra Blanca o Pintura?");
+			System.out.println("Ingrese la categoria de "+materials[i]+". Obra negra, Obra Blanca o Pintura?");
 			materialUse[i] = sc.nextLine();		
 		}
-		sc.nextLine();
 		return materialUse;		
 	}
 	public static int[] getMaterialPrice(int neededMaterials, String[] materials, Scanner sc, String tienda) {
