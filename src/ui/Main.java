@@ -14,8 +14,7 @@ public class Main {
 		int numberOfMaterials = sc.nextInt();
 		sc.nextLine();
 		return numberOfMaterials;
-	}
-		
+	}		
 	public static String[] getMaterialName(int neededMaterials, Scanner sc) {
 		String[] materialName = new String[neededMaterials];
 		for (int i=0; i<neededMaterials; i++) {
@@ -24,7 +23,6 @@ public class Main {
 		}
 		return materialName;		
 	}
-	
 	public static int[] getMaterialAmount(int neededMaterials, String[] materials, Scanner sc) {
 		int[] materialAmount = new int[neededMaterials];
 		for (int i=0; i<neededMaterials; i++) {
@@ -34,7 +32,6 @@ public class Main {
 		sc.nextLine();
 		return materialAmount;		
 	}
-	
 	public static String[] getMaterialUse(int neededMaterials, String[] materials, Scanner sc) {
 
 		String[] materialUse = new String[neededMaterials];
@@ -45,8 +42,24 @@ public class Main {
 		sc.nextLine();
 		return materialUse;		
 	}
+	public static int[] getMaterialPrice(int neededMaterials, String[] materials, Scanner sc, String tienda) {
+		int[] materialPrice = new int[neededMaterials];
+		for (int i=0; i<neededMaterials; i++) {
+			System.out.println("Ingrese el precio de "+materials[i]+" en "+tienda+":");
+			materialPrice[i] = sc.nextInt();
+		}
+		sc.nextLine();
+		return materialPrice;
+	}
 
 	public static void main(String[] args) {
-		
+		Scanner sc = new Scanner(System.in);
+		int totalMaterial = totalMaterials(sc);
+		String[] materialList = getMaterialName(totalMaterial, sc);
+		int[] amountList = getMaterialAmount(totalMaterial, materialList, sc);
+		String[] useList = getMaterialUse(totalMaterial, materialList, sc);
+		int[] pricesHomeCenter = getMaterialPrice(totalMaterial, materialList, sc, "HomeCenter");
+		int[] pricesFerreteriaCentro = getMaterialPrice(totalMaterial, materialList, sc, "Ferreteria del centro");
+		int[] pricesFerreteriaBarrio = getMaterialPrice(totalMaterial, materialList, sc, "Ferreteria del barrio");
 	}
 }
