@@ -8,6 +8,7 @@ public class Main {
 	static final int ROUGH_CONSTRUCTION = 1300000;
 	static final int FINAL_CONSTRUCTION = 2600000;
 	static final int PAINTING = 980000;
+	static final int WORKFORCE = ROUGH_CONSTRUCTION+FINAL_CONSTRUCTION+PAINTING;
 	
 	public static int totalMaterials(Scanner sc) {
 		System.out.println("Ingrese la cantidad de materiales necesarios:");
@@ -59,5 +60,8 @@ public class Main {
 		int[] pricesHomeCenter = getMaterialPrice(totalMaterial, materialList, sc, "HomeCenter");
 		int[] pricesFerreteriaCentro = getMaterialPrice(totalMaterial, materialList, sc, "Ferreteria del centro");
 		int[] pricesFerreteriaBarrio = getMaterialPrice(totalMaterial, materialList, sc, "Ferreteria del barrio");
+		System.out.println("El valor total de los materiales en Homecenter es: "+Budget.totalPrice(pricesHomeCenter, amountList, WORKFORCE));
+		System.out.println("El valor total de los materiales en Ferreteria del centro es: "+Budget.totalPrice(pricesFerreteriaCentro, amountList, WORKFORCE));
+		System.out.println("El valor total de los materiales en Ferreteria del barrio es: "+Budget.totalPrice(pricesFerreteriaBarrio, amountList, WORKFORCE));
 	}
 }
