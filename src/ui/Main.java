@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class Main {
 	
-	static final int ROUGH_CONSTRUCTION = 1300000;
-	static final int FINAL_CONSTRUCTION = 2600000;
-	static final int PAINTING = 980000;
-	static final int WORKFORCE = ROUGH_CONSTRUCTION+FINAL_CONSTRUCTION+PAINTING;
+	private static final int ROUGH_CONSTRUCTION = 1300000;
+	private static final int FINAL_CONSTRUCTION = 2600000;
+	private static final int PAINTING = 980000;
+	private static final int WORKFORCE = ROUGH_CONSTRUCTION+FINAL_CONSTRUCTION+PAINTING;
 	
 	public static int totalMaterials(Scanner sc) {
 		System.out.println("Ingrese la cantidad de materiales necesarios:");
