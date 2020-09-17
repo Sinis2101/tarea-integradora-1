@@ -2,6 +2,12 @@ package model;
 
 public class Budget {
 	
+	/**
+	* Prints all elements from a String array. <br>
+	* <b>pre: </b> Array is initialized. <br>
+	* <b>post: </b> All elements from the array were printed.
+	* @param list String array. list != null and list != "".
+	*/
 	public static void printList(String[] list) {
 		for(int i=0; i<list.length; i++) {
 			System.out.println(list[i]);
