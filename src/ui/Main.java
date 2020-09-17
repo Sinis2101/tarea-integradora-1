@@ -10,6 +10,17 @@ public class Main {
 	private static final int PAINTING = 980000;
 	private static final int WORKFORCE = ROUGH_CONSTRUCTION+FINAL_CONSTRUCTION+PAINTING;
 	
+	/**
+	* Prints all elements from a String array. <br>
+	* <b>pre: </b> Array is initialized. <br>
+	* <b>post: </b> All elements from the array were printed.
+	* @param list String array. list != null and list != "".
+	*/
+	public static void printList(String[] list) {
+		for(int i=0; i<list.length; i++) {
+			System.out.println(list[i]);
+		}
+	}
 	public static int totalMaterials(Scanner sc) {
 		System.out.println("Ingrese la cantidad de materiales necesarios:");
 		int numberOfMaterials = sc.nextInt();
@@ -124,6 +135,6 @@ public class Main {
 		String filter = sc.nextLine();
 		int filterListSize = Budget.getFilterListSize(useList, filter);
 		String[] filterList = Budget.getFilterList(filterListSize, materialList, useList, filter);
-		Budget.printList(filterList);
+		printList(filterList);
 	}
 }
