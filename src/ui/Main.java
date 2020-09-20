@@ -11,22 +11,33 @@ public class Main {
 	private static final int WORKFORCE = ROUGH_CONSTRUCTION+FINAL_CONSTRUCTION+PAINTING;
 	
 	/**
-	* Prints all elements from a String array. <br>
-	* <b>pre: </b> Array is initialized. <br>
-	* <b>post: </b> All elements from the array were printed.
-	* @param list String array. list != null and list != "".
-	*/
+	 * Prints all the elements from a String array. <br>
+	 * @param list String array. list != null.
+	 */
 	public static void printList(String[] list) {
 		for(int i=0; i<list.length; i++) {
 			System.out.println(list[i]);
 		}
 	}
+	
+	/**
+	 * Gets the number of materials needed.
+	 * @param sc Scanner to read what the user types. Scanner must be initialized.
+	 * @return Returns the amount of materials needed.
+	 */
 	public static int totalMaterials(Scanner sc) {
 		System.out.println("Ingrese la cantidad de materiales necesarios:");
 		int numberOfMaterials = sc.nextInt();
 		sc.nextLine();
 		return numberOfMaterials;
 	}
+	
+	/**
+	 * Gets the name of each material.
+	 * @param neededMaterials The amount of materials needed. neededMaterials != null.
+	 * @param sc Scanner to read what the user types. Scanner must be initialized.
+	 * @return Returns a String array with the name of all needed materials.
+	 */
 	public static String[] getMaterialName(int neededMaterials, Scanner sc) {
 		String[] materialName = new String[neededMaterials];
 		for (int i=0; i<neededMaterials; i++) {
@@ -35,6 +46,14 @@ public class Main {
 		}
 		return materialName;		
 	}
+	
+	/**
+	 * Gets the amount needed for each material.
+	 * @param neededMaterials The amount of materials needed. neededMaterials != null.
+	 * @param materials A String array with the name of all needed materials.
+	 * @param sc Scanner to read what the user types. Scanner must be initialized.
+	 * @return Returns an integer array with the amount needed for each material.
+	 */
 	public static int[] getMaterialAmount(int neededMaterials, String[] materials, Scanner sc) {
 		int[] materialAmount = new int[neededMaterials];
 		for (int i=0; i<neededMaterials; i++) {
@@ -44,6 +63,14 @@ public class Main {
 		sc.nextLine();
 		return materialAmount;		
 	}
+	
+	/**
+	 * Gets the use of each material.
+	 * @param neededMaterials The amount of materials needed. neededMaterials != null.
+	 * @param materials A String array with the name of all needed materials.
+	 * @param sc Scanner to read what the user types. Scanner must be initialized.
+	 * @return Returns a String array with the use of each material.
+	 */
 	public static String[] getMaterialUse(int neededMaterials, String[] materials, Scanner sc) {
 		String[] materialUse = new String[neededMaterials];
 		for (int i=0; i<neededMaterials; i++) {
@@ -52,6 +79,15 @@ public class Main {
 		}
 		return materialUse;		
 	}
+	
+	/**
+	 * Gets the price of each material for each shop.
+	 * @param neededMaterials The amount of materials needed. neededMaterials != null.
+	 * @param materials A String array with the name of all needed materials.
+	 * @param sc Scanner to read what the user types. Scanner must be initialized.
+	 * @param shop The name of the shop. shop != null and shop != "".
+	 * @return Returns an integer array with the price of each material.
+	 */
 	public static int[] getMaterialPrice(int neededMaterials, String[] materials, Scanner sc, String shop) {
 		int[] materialPrice = new int[neededMaterials];
 		for (int i=0; i<neededMaterials; i++) {
@@ -61,11 +97,25 @@ public class Main {
 		sc.nextLine();
 		return materialPrice;
 	}
+	
+	/**
+	 * Compares all the prices from all the shops and gets the best price for each material.
+	 * @param material A String array with the name of all needed materials.
+	 * @param bestPriceList An integer array with the best price of each material.
+	 * @param bestPricePlaceList A String array with the shop that has the best price of each material.
+	 */
 	public static void showBestPrice(String[] material, int[] bestPriceList, String[] bestPricePlaceList) {
 		for(int i=0; i<material.length; i++) {
 			System.out.println("El mejor precio para "+material[i]+" es "+bestPriceList[i]+" en "+bestPricePlaceList[i]);
 		}
 	}
+	
+	/**
+	 * Calculates the delivery cost for each shop based on location and total price for all materials.
+	 * @param location Location of the building place. Valid values (Ignores case): "Norte", "Centro", "Sur".
+	 * @param totalPrice Total price for all materials.
+	 * @return Returns the delivery cost.
+	 */
 	public static int deliveryCost(String location, int totalPrice) {
 		int cost = 0;
 		location = location.toLowerCase();
@@ -100,6 +150,14 @@ public class Main {
 		}
 		return cost;
 	}
+	
+	/**
+	 * Shows the total cost of the work. It takes into account delivery cost and fixed workforce price.
+	 * @param materialPrice The total price for the materials.
+	 * @param deliveryPrice The delivery cost.
+	 * @param workforce Fixed price for the workforce.
+	 * @param shop The name of the shop. shop != null and shop != "".
+	 */
 	public static void showTotalPerShop(int materialPrice, int deliveryPrice, int workforce, String shop) {
 		int total = materialPrice+deliveryPrice+workforce;
 		System.out.println("El costo total de la obra si los materiales se compran en "+shop+" es: "+total);
